@@ -8,6 +8,7 @@
 # Calculator -- a four function calculator commandline tool
 
 import sys
+import math
 
 # -------------------------------------------------------- #
 # -- CALCULATOR FUNCTIONS -------------------------------- #
@@ -37,6 +38,10 @@ def mult(a, b):
 def div(a, b):
     return a / b
 
+#Exponent function
+def exponentFunction(a, b):
+    return a**b
+
 
 # -------------------------------------------------------- #
 
@@ -50,32 +55,40 @@ b = None
 op = None
 
 while (True):
+    print("Welcome to the calculator: +, -, /, *, ^ are your operators have fun.")
     # get input values
-    a = raw_input("Enter the first argument: ")
-    op = raw_input("Enter the operation: ")
-    b = raw_input("Enter the second argument: ")
+    a = input("Enter the first argument: ")
+    op = input("Enter the operation: ")
+    b = input("Enter the second argument: ")
     try:
         a = int(a)
         b = int(b)
     except ValueError:
-        print "Invalid number argument..."
+        print("Invalid number argument...")
         op = None
 
     # decide function
     if (op != None):
         if (op == "+"):
-            print "Sum: ", add(a, b)
+            print("Sum: ", add(a, b))
         elif (op == "-"):
-            print "Difference: ", sub(a, b)
+            print("Difference: ", sub(a, b))
         elif (op == "*"):
-            print "Product: ", mult(a, b)
+            print("Product: ", mult(a, b))
         elif (op == "/"):
-            print "Quotient: ", div(a, b)
+            print("Quotient: ", div(a, b))
+        elif (op == "^"):
+            print("Exponent: ", exponentFunction(a,b))
         else:
-            print "Invalid operation..."
-
-    q = raw_input("Quit? [y/n] ")
-    if (q == "y" or q == "Y"):
+            print("Invalid operation...")
+    
+    """ elif questionUser = input("Do you want the square root of this number? [y/n]")
+        if (questionUser == 'y' or question == 'Y')
+            squareRootArgument  = input("Enter the number you want the square root of: ")
+            print(math.sqrt(squareRootArgument)) """ 
+    elif q = input("Quit? [y/n] "):
+        if (q == "y" or q == "Y"):
         break
 
 # -------------------------------------------------------- #
+
